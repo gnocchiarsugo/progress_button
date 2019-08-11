@@ -1,6 +1,6 @@
-# progress_button
+# Progress Button
 
-A new Flutter project.
+A simple Progress Button for Flutter
 
 ## Getting Started
 
