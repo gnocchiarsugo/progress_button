@@ -2,6 +2,10 @@
 
 A simple Progress Button for Flutter
 
+# Screenshots
+<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/Idle_Screenshot.png" height="50%" width="50%" alt="Idle Screenshot">
+
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
