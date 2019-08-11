@@ -1,2 +1,2 @@
-# progress_button
-A Progress Button for Flutter.
+# Progress Button
+A simple Progress Button for Flutter.
