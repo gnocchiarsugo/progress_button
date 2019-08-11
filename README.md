@@ -3,7 +3,13 @@
 A simple Progress Button for Flutter
 
 # Screenshots
-<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/Idle_Screenshot.png" height="50%" width="50%" alt="Idle Screenshot">
+<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Idle_Screenshot.png" height="50%" width="50%" alt="Idle Screenshot">
+
+<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Loading_Screenshot.png" height="50%" width="50%" alt="Loading Screenshot">
+
+<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Success_Screenshot.png" height="50%" width="50%" alt="Success Screenshot">
+
+<img src="https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Error_Screenshot.png" height="50%" width="50%" alt="Error Screenshot">
 
 
 ## Getting Started
