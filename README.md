@@ -1,6 +1,14 @@
-# progress_button
+# Progress Button
 
-A new Flutter project.
+A simple animated progress button made with Flutter
+
+# Sreenshots
+![Idle Screenshot](https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Idle_Screenshot.png)
+
+![Idle Screenshot](https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Success_Screenshot.png)
+
+![Idle Screenshot](https://raw.githubusercontent.com/gnocchiarsugo/progress_button/master/screenshots/Error_Screenshot.png)
+
 
 ## Getting Started
 
