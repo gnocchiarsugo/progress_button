@@ -18,6 +18,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - white_check.png
-    - white_x.png

@@ -19,6 +19,8 @@ class ProgressButton extends StatefulWidget {
   final double height;
   final double width;
   final Widget child;
+  final Widget successWidget;
+  final Widget errorWidget;
   final onButtonPressed<Future<ButtonState>> onPressed;
   final Function onSuccessFinished;
 
@@ -32,6 +34,8 @@ class ProgressButton extends StatefulWidget {
     this.height,
     this.width,
     @required this.child,
+    this.successWidget,
+    this.errorWidget,
     @required this.onPressed,
     this.onSuccessFinished,
 
@@ -72,7 +76,6 @@ class _ProgressButtonState extends State<ProgressButton> with SingleTickerProvid
         setState((){});
       }
       else if(status == AnimationStatus.dismissed){
-        //settare le variabii per gli onpressed dei due casi
         if(_state == ButtonState.success) {
           _animateSwitch = false;
           _onPressed = () {
@@ -116,47 +119,32 @@ class _ProgressButtonState extends State<ProgressButton> with SingleTickerProvid
     super.initState();
   }
 
+  Widget _defaultResultWidget(IconData _iconData){
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.0),
+      child: Center(
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: Icon(
+            _iconData,
+            color: Colors.white,
+            size: math.min(_buttonSize.width, _buttonSize.height),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
 
     _width = _buttonSize == null ? null : _buttonSize.width;
     _height = _buttonSize == null ? null : _buttonSize.height;
     _child = _animateSwitch ? Container()
-        : _state == ButtonState.idle ? Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        widget.child,
-      ],
-    )
+        : _state == ButtonState.idle ? widget.child
           : _state == ButtonState.success
-            ?  Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: 8.0, horizontal: 0.0),
-      child: Center(
-        child: AspectRatio(
-          aspectRatio: 1,
-          child: Image.asset(
-            'assets/white_check.png',
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    )
-            : Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: 8.0, horizontal: 0.0),
-      child: Center(
-        child: AspectRatio(
-          aspectRatio: 1,
-          child: Image.asset(
-            'assets/white_x.png',
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    );
+            ?  widget.successWidget ?? _defaultResultWidget(Icons.check)
+            : widget.errorWidget ??  _defaultResultWidget(Icons.close);
 
     _color = _state == ButtonState.idle
         ? widget.idleColor
@@ -191,6 +179,7 @@ class _ProgressButtonState extends State<ProgressButton> with SingleTickerProvid
       return _ProgressButton(
         width: widget.width ?? _width,
         height: widget.height ?? _height,
+        color: _color,
         child: _child,
         onPressed: (){
           if(_firstTap){
@@ -200,9 +189,7 @@ class _ProgressButtonState extends State<ProgressButton> with SingleTickerProvid
           }
           _onPressed();
         },
-        color: _color,
       );
-
     }
 
   }
